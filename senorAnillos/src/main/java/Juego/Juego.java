@@ -22,7 +22,7 @@ import java.util.Scanner;
 public class Juego {
 
     private final int LIM_TIPOS_BESTIAS = 2, LIM_TIPOS_HEROES = 3;
-
+    private String ganador;
     Scanner sc = new Scanner(System.in);
 
     public void inicio() {
@@ -42,9 +42,17 @@ public class Juego {
         llenarEjercitoBestias(Bestias);
         llenarEjercitoHeroes(Heroes);
 
-        presentar(Heroes);
-        presentar(Bestias);
-        batalla(Bestias, Heroes);
+        boolean eleccion;
+        int i=0;
+
+        do {
+            i++;
+            presentar(Heroes);
+            presentar(Bestias);
+            System.out.println("Turno "+i);
+            eleccion = batalla(Bestias, Heroes);
+        } while (eleccion == false);
+        ganador();
     }
 
     private void llenarEjercitoBestias(Personaje[] bes) {
@@ -85,10 +93,11 @@ public class Juego {
         System.out.println("--------------------------");
     }
 
-    private void batalla(Personaje[] bes, Personaje[] her) {
+    private boolean batalla(Personaje[] bes, Personaje[] her) {
 
         int rondas;
         int random;
+        boolean decision;
         Personaje temp1;
         Personaje temp2;
 
@@ -110,21 +119,50 @@ public class Juego {
             }
 
             System.out.println("Lucha entre: " + temp1.getNombre() + " (Vida = " + temp1.getVida() + ") y "
-                    + temp2.getNombre() + "(Vida = " + temp2.getVida()+")");
+                    + temp2.getNombre() + " (Vida = " + temp2.getVida() + ")");
             System.out.println("");
             pelea(temp1, temp2);
             System.out.println("Fin de pelea entre: " + temp1.getNombre() + " (Vida = " + temp1.getVida() + ") y "
-                    + temp2.getNombre() + "(Vida = " + temp2.getVida()+")");
+                    + temp2.getNombre() + " (Vida = " + temp2.getVida() + ")");
             System.out.println("");
-        }
 
+            if (verificarTropa(bes) == true) {
+                ganador = "Heroes";
+                return true;
+            } else if (verificarTropa(her) == true) {
+                ganador = "Bestias";
+                return true;
+            }
+        }
+        return false;
     }
-    
-    private void pelea(Personaje p1,Personaje p2){
-        
+
+    private void pelea(Personaje p1, Personaje p2) {
+
         p1.atacar(p2);
         p2.atacar(p1);
-        
+
+    }
+
+    private boolean verificarTropa(Personaje[] per) {
+        int verif=0;
+        int vidaTemp=0;
+        for (int i = 0; i < per.length; i++) {
+            if (per[i].getVida()<0) {
+                verif += vidaTemp;
+            }else{
+               verif += per[i].getVida(); 
+            }            
+        }
+        if (verif == 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    private void ganador(){
+        System.out.println("Los ganadores son el equipo de "+ganador);
     }
 
 }
