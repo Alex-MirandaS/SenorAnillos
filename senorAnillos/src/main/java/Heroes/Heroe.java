@@ -15,4 +15,5 @@ public class Heroe extends Personaje.Personaje{
         super(nombre, vida, ataque);
     }
     
+    
 }

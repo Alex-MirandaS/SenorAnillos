@@ -14,5 +14,9 @@ public class Humano extends Heroe{
      public Humano(String nombre) {
         super(nombre, 180, 70);
     }   
-   
+       
+    @Override
+    public void presentarse(){
+        System.out.println("Hola, soy un Humano, y me llamo: "+this.nombre);
+    }
 }
