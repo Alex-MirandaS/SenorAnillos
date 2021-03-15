@@ -9,15 +9,15 @@ package Heroes;
  *
  * @author alex
  */
-public class Humano extends Heroe{
-    
-     public Humano(String nombre) {
+public class Humano extends Heroe {
+
+    public Humano(String nombre) {
         super(nombre, 180, 70);
-    }   
-       
+    }
+
     @Override
-    public void presentarse(){
-                ataque = obtenerAtaque();
-        System.out.println("Hola, soy un Humano, y me llamo: "+this.nombre+"\n Ataque: "+obtenerAtaque());
+    public void presentarse() {
+        ataque = obtenerAtaque();
+        System.out.println("Hola, soy un Humano, y me llamo: " + this.nombre + "\n Ataque: " + ataque);
     }
 }
