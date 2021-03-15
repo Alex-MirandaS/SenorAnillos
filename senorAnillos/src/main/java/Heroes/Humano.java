@@ -17,6 +17,7 @@ public class Humano extends Heroe{
        
     @Override
     public void presentarse(){
+                ataque = obtenerAtaque();
         System.out.println("Hola, soy un Humano, y me llamo: "+this.nombre+"\n Ataque: "+obtenerAtaque());
     }
 }

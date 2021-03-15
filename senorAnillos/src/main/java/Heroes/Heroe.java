@@ -24,9 +24,7 @@ public class Heroe extends Personaje.Personaje {
         int dado1 = Dado.dado(LIMITE_VALOR_ATAQUE);
         int dado2 = Dado.dado(LIMITE_VALOR_ATAQUE);
 
-        if (dado1 == dado2) {
-            return dado1;
-        } else if (dado1 > dado2) {
+        if (dado1 >= dado2) {
             return dado1;
         } else {
             return dado2;

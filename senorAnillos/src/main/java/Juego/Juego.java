@@ -45,6 +45,7 @@ public class Juego {
         presentar(Heroes);
         presentar(Bestias);
 
+        batalla(Bestias, Heroes);
     }
 
     private void llenarEjercitoBestias(Personaje[] bes) {
@@ -80,9 +81,51 @@ public class Juego {
 
     private void presentar(Personaje[] per) {
         for (int i = 0; i < per.length; i++) {
-per[i].presentarse();
+            per[i].presentarse();
         }
         System.out.println("--------------------------");
     }
-   
+
+    private void batalla(Personaje[] bes, Personaje[] her) {
+
+        int rondas;
+        int random;
+        Personaje temp1;
+        Personaje temp2;
+
+        if (bes.length >= her.length) {
+            rondas = bes.length;
+        } else {
+            rondas = her.length;
+        }
+
+        for (int i = 0; i < rondas; i++) {
+
+            random = (int) (Math.random() * 2 + 1);
+            if (random == 1) {
+                temp1 = bes[i];
+                temp2 = her[i];
+            } else {
+                temp1 = her[i];
+                temp2 = bes[i];
+            }
+
+            System.out.println("Lucha entre: " + temp1.getNombre() + " (Vida = " + temp1.getVida() + ") y "
+                    + temp2.getNombre() + "(Vida = " + temp2.getVida()+")");
+            System.out.println("");
+            pelea(temp1, temp2);
+            System.out.println("Fin de pelea entre: " + temp1.getNombre() + " (Vida = " + temp1.getVida() + ") y "
+                    + temp2.getNombre() + "(Vida = " + temp2.getVida()+")");
+            System.out.println("");
+        }
+
+    }
+    
+    private void pelea(Personaje p1,Personaje p2){
+        
+        p1.atacar(p2);
+        p2.atacar(p1);
+        
+    }
+
 }

@@ -18,6 +18,7 @@ public class Orco extends Bestia{
         
     @Override
     public void presentarse(){
+                ataque = obtenerAtaque();
         System.out.println("Hola, soy un Orco, y me llamo: "+this.nombre+"\n Ataque: "+obtenerAtaque());
     }
 }
