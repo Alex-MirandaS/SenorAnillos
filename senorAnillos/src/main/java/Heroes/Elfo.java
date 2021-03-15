@@ -15,4 +15,8 @@ public class Elfo extends Heroe{
         super(nombre, 250, 80);
     }
     
+    @Override
+    public void presentarse(){
+        System.out.println("Hola, soy un Elfo, y me llamo: "+this.nombre);
+    }
 }

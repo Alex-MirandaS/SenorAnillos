@@ -15,4 +15,9 @@ public class Trasgo extends Bestia{
         super(nombre, 325, 80);
     }
     
+        
+    @Override
+    public void presentarse(){
+        System.out.println("Hola, soy un Trasgo, y me llamo: "+this.nombre);
+    }
 }

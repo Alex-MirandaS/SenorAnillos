@@ -11,7 +11,7 @@ package Personaje;
  */
 public class Personaje {
 
-    private String nombre;
+    protected String nombre;
     private int vida;
     private int ataque;
     
@@ -20,6 +20,10 @@ public class Personaje {
        this.vida = vida;
        this.ataque = ataque;
        
+    }
+    
+    public void presentarse(){
+        System.out.println("Hola soy un Personaje y me llamo: "+this.nombre);
     }
     
 }
