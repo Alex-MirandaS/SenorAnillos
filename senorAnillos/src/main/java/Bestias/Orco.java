@@ -9,6 +9,10 @@ package Bestias;
  *
  * @author alex
  */
-public class Orco {
+public class Orco extends Bestia{
+    
+    public Orco(String nombre) {
+        super(nombre, 300, 75);
+    }
     
 }

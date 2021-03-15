@@ -9,6 +9,10 @@ package Heroes;
  *
  * @author alex
  */
-public class Hobbit {
+public class Hobbit extends Heroe{
+    
+    public Hobbit(String nombre) {
+        super(nombre, 200, 90);
+    }
     
 }
