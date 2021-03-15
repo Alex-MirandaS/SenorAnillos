@@ -18,6 +18,6 @@ public class Hobbit extends Heroe{
         
     @Override
     public void presentarse(){
-        System.out.println("Hola, soy un Hobbit, y me llamo: "+this.nombre);
+        System.out.println("Hola, soy un Hobbit, y me llamo: "+this.nombre+"\n Ataque: "+obtenerAtaque());
     }
 }

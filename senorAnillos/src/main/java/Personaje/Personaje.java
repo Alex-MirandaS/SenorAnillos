@@ -12,18 +12,24 @@ package Personaje;
 public class Personaje {
 
     protected String nombre;
-    private int vida;
-    private int ataque;
+    protected int vida;
+    protected int armadura;
+    protected int ataque = obtenerAtaque();
     
-    public Personaje(String nombre, int vida, int ataque) {
+    public Personaje(String nombre, int vida, int armadura) {
        this.nombre = nombre; 
        this.vida = vida;
-       this.ataque = ataque;
-       
+       this.armadura = armadura;  
     }
     
     public void presentarse(){
-        System.out.println("Hola soy un Personaje y me llamo: "+this.nombre);
+        System.out.println("Hola soy un Personaje y me llamo: "+this.nombre+"\n Ataque: "+ataque);
+        
     }
+    
+    public int obtenerAtaque(){
+        return 0;
+    }
+    
     
 }

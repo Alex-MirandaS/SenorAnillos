@@ -44,6 +44,7 @@ public class Juego {
 
         presentar(Heroes);
         presentar(Bestias);
+
     }
 
     private void llenarEjercitoBestias(Personaje[] bes) {
@@ -83,4 +84,5 @@ per[i].presentarse();
         }
         System.out.println("--------------------------");
     }
+   
 }
